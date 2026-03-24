@@ -1,0 +1,12 @@
+# max5532.yaml
+description: MAX5532 SPI DAC
+
+compatible: "maxim,max5532"
+
+include: spi-device.yaml
+
+properties:
+  vref-supply:
+    type: phandle
+    required: false
+    description: Optional reference voltage supply

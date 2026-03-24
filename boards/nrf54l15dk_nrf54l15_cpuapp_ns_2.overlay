@@ -1,0 +1,85 @@
+/*
+&spi00 {
+    compatible = "nordic,nrf-spim";
+    status = "okay";
+    pinctrl-0 = <&spi00_default>;
+    pinctrl-1 = <&spi00_sleep>;
+    pinctrl-names = "default", "sleep";
+
+    max5532: max5532@0 {
+        compatible = "maxim,max5532";
+        reg = <0>;
+        spi-max-frequency = <10000000>;
+    };
+};
+
+&pinctrl {
+    spi00_default: spi00_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 2, 6)>,
+                    <NRF_PSEL(SPIM_MOSI, 2, 2)>;
+        };
+    };
+
+    spi00_sleep: spi00_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 2, 6)>,
+                    <NRF_PSEL(SPIM_MOSI, 2, 2)>;
+            low-power-enable;
+        };
+    };
+};
+
+&mx25r64 {
+    status = "disabled";
+};
+*/
+
+&spi00 {
+    compatible = "nordic,nrf-spim";
+    status = "okay";
+    pinctrl-0 = <&spi00_default>;
+    pinctrl-1 = <&spi00_sleep>;
+    pinctrl-names = "default", "sleep";
+
+    max5532: max5532@0 {
+        compatible = "maxim,max5532";
+        reg = <0>;
+        spi-max-frequency = <1000000>;
+    };
+
+    rhd2216: rhd2216@1 {
+        compatible = "vnd,spi-device";
+        reg = <1>;
+        spi-max-frequency = <1000000>;
+    };
+
+    adg1414: adg1414@2 {
+        compatible = "vnd,spi-device";
+        reg = <2>;
+        spi-max-frequency = <1000000>;
+    };
+};
+
+&pinctrl {
+    spi00_default: spi00_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 2, 6)>,
+                    <NRF_PSEL(SPIM_MOSI, 2, 2)>,
+                    <NRF_PSEL(SPIM_MISO, 2, 4)>;
+        };
+    };
+
+    spi00_sleep: spi00_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 2, 6)>,
+                    <NRF_PSEL(SPIM_MOSI, 2, 2)>,
+                    <NRF_PSEL(SPIM_MISO, 2, 4)>;
+            low-power-enable;
+        };
+    };
+};
+
+&mx25r64 {
+    status = "disabled";
+};

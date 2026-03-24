@@ -1,0 +1,45 @@
+{
+	"folders": [
+		{
+			"name": "test",
+			"path": "."
+		},
+		{
+			"name": "ncs-inter",
+			"path": "../ncs-inter"
+		},
+		{
+			"name": "blinky",
+			"path": "../../ncs/v3.0.2/nrf/samples/zephyr/basic/blinky"
+		}
+	],
+	"settings": {
+		"nrf-connect.applications": [
+			"c:\\myfw\\ncsfund\\ncs-fund\\l2\\l2_e1",
+			"c:\\myfw\\ncsfund\\ncs-fund\\l2\\l2_e2",
+			"c:\\myfw\\ncsfund\\ncs-fund\\l3\\l3_e1",
+			"c:\\myfw\\ncsfund\\ncs-fund\\l5\\l5_e1",
+			"c:\\myfw\\ncsfund\\ncs-fund\\l5\\l5_e1_sol",
+			"c:\\myfw\\ncsfund\\ncs-fund\\l7\\l7_e1",
+			"c:\\myfw\\bt-fund\\l2\\l2_e1",
+			"c:\\myfw\\bt-fund\\l2\\l2_e1_sol",
+			"c:\\myfw\\bt-fund\\l2\\l2_e2_sol",
+			"${workspaceFolder:ncs-inter}\\l5\\l5_e1_sol"
+		],
+		"nrf-connect.debugging.bindings": {
+			"${workspaceFolder}/build/test": "Launch test"
+		}
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"type": "nrf-connect",
+				"request": "launch",
+				"name": "Launch test",
+				"config": "${workspaceFolder}/build/test",
+				"runToEntryPoint": "main"
+			}
+		]
+	}
+}

@@ -1,0 +1,4 @@
+build:
+  cmake: .
+  kconfig: .
+  dts_bindings: dts/bindings
